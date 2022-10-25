@@ -27,8 +27,8 @@ echo "$(date +'%m.%d.%Y')" > package/base-files/files/etc/openwrt_version
 # 修改登录密码
 sed -i "s/sed -i 's\/root::0:0:99999:7:::/# sed -i 's\/root::0:0:99999:7:::/g" package/lean/default-settings/files/zzz-default-settings
 sed -i "s/sed -i '\/REDIRECT --to-ports/# sed -i '\/REDIRECT --to-ports/g" package/lean/default-settings/files/zzz-default-settings
-sed -i "s/echo 'iptables -t/# echo 'iptables -t/g" package/lean/default-settings/files/zzz-default-settings
-sed -i "s/echo '[/# echo '[/g" package/lean/default-settings/files/zzz-default-settings
+sed -i "s/echo 'iptables -t/echo '# iptables -t/g" package/lean/default-settings/files/zzz-default-settings
+sed -i "s/echo '[/echo '# [/g" package/lean/default-settings/files/zzz-default-settings
 
 # 开启wifi选项
 sed -i 's/disabled=*.*/disabled=0/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
