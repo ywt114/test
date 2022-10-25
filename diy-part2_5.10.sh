@@ -25,7 +25,6 @@ sed -i '/(<%=pcdata(ver.luciversion)%>)/a\      built by ywt114' package/lean/au
 echo "$(date +'%m.%d.%Y')" > package/base-files/files/etc/openwrt_version
 
 # 修改登录密码
-mirrors.cloud.tencent.com/lede
 sed -i "s/sed -i 's/mirrors.cloud.tencent.com\/openwrt/mirrors.cloud.tencent.com\/openwrt/g" package/lean/default-settings/files/zzz-default-settings
 sed -i "s/sed -i 's\/root::0:0:99999:7:::/# sed -i 's\/root::0:0:99999:7:::/g" package/lean/default-settings/files/zzz-default-settings
 sed -i "s/sed -i '\/REDIRECT --to-ports/# sed -i '\/REDIRECT --to-ports/g" package/lean/default-settings/files/zzz-default-settings
