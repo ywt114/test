@@ -25,7 +25,7 @@ sed -i '/(<%=pcdata(ver.luciversion)%>)/a\      built by ywt114' package/lean/au
 echo "$(date +'%m.%d.%Y')" > package/base-files/files/etc/openwrt_version
 
 # 修改部分默认设置
-sed -i "/option check_signature/d" package/system/opkg/Makefile
+sed -i "s/option check_signature/# option check_signature/g" package/system/opkg/Makefile
 sed -i "/exit 0/d" package/lean/default-settings/files/zzz-default-settings
 echo "echo 'src/gz openwrt_kenzok8 https://op.dllkids.xyz/packages/x86_64' >> etc/opkg/distfeeds.conf" >> package/lean/default-settings/files/zzz-default-settings
 echo "exit 0" >> package/lean/default-settings/files/zzz-default-settings
