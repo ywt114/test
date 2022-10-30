@@ -25,6 +25,8 @@ sed -i '/(<%=pcdata(ver.luciversion)%>)/a\      built by ywt114' package/lean/au
 echo "$(date +'%m.%d.%Y')" > package/base-files/files/etc/openwrt_version
 
 # 修改部分默认设置
+sed -i "s/check_signature 1/check_signature 0/g" package/system/opkg/files/opkg-smime.conf
+echo "src/gz openwrt_kiddin9 https://op.supes.top/packages/x86_64" >> /etc/opkg/distfeeds.conf
 sed -i "s/mirrors.cloud.tencent.com\/lede/mirrors.cloud.tencent.com\/openwrt/g" package/lean/default-settings/files/zzz-default-settings
 sed -i "s/sed -i 's\/root::0:0:99999:7:::/# sed -i 's\/root::0:0:99999:7:::/g" package/lean/default-settings/files/zzz-default-settings
 sed -i "s/sed -i '\/REDIRECT --to-ports/# sed -i '\/REDIRECT --to-ports/g" package/lean/default-settings/files/zzz-default-settings
