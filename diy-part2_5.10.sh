@@ -53,7 +53,6 @@ svn export https://github.com/kenzok8/openwrt-packages/trunk/adguardhome feeds/p
 cd package/lean
 git clone https://github.com/ywt114/luci-app-advanced
 git clone https://github.com/sirpdboy/luci-app-autotimeset
-git clone https://github.com/sirpdboy/luci-app-cupsd
 git clone https://github.com/sbwml/luci-app-alist
 git clone https://github.com/rufengsuixing/luci-app-autoipsetadder
 git clone -b lede https://github.com/pymumu/luci-app-smartdns
