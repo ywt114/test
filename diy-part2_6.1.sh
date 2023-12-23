@@ -99,8 +99,8 @@ git clone -b master https://github.com/linkease/nas-packages package/lean/nas-pa
 
 # 取消部分config配置
 sed -i '/CONFIG_PACKAGE_kmod-usb-audio/d' ./.config
-echo "CONFIG_PACKAGE_kmod-usb-audio=n" >> ./.config
-echo "CONFIG_PACKAGE_kmod-media-core=n" >> ./.config
+echo "# CONFIG_PACKAGE_kmod-usb-audio=n" >> ./.config
+echo "# CONFIG_PACKAGE_kmod-media-core=n" >> ./.config
 
 # 修改vermagic版本号
 # curl -fsSL https://raw.githubusercontent.com/ywt114/diy/main/vermagic-6.1 > vermagic
