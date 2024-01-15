@@ -2,7 +2,7 @@
 # 描述: OpenWrt DIY script part 2 (放在安装feeds之后)
 #!/bin/bash
 
-function merge_package() {
+function merge_package(){
     # 参数1是分支名,参数2是库地址。所有文件下载到指定路径。
     # 同一个仓库下载多个文件夹直接在后面跟文件名或路径，空格分开。
     trap 'rm -rf "$tmpdir"' EXIT
@@ -15,7 +15,6 @@ function merge_package() {
     cd "$tmpdir"
     git sparse-checkout init --cone
     git sparse-checkout set "$@"
-    
     # 使用循环逐个移动文件夹
     for folder in "$@"; do
         mv -f "$folder" "$rootdir/$localdir"
@@ -98,11 +97,11 @@ git clone --depth=1 -b master https://github.com/sirpdboy/luci-app-autotimeset p
 sed -i 's/control"/system"/g' package/lean/luci-app-autotimeset/luasrc/controller/autotimeset.lua
 sed -i 's/control]/system]/g' package/lean/luci-app-autotimeset/luasrc/view/autotimeset/log.htm
 merge_package main https://github.com/linkease/openwrt-app-actions package/lean applications/luci-app-multiaccountdial
-merge_package main https://github.com/linkease/istore package/lean translations luci/* 
+merge_package main https://github.com/linkease/istore package/lean translations luci
 # sed -i 's/+luci-lib-ipkg/+luci-base/g' package/lean/luci-app-store/Makefile
-merge_package main https://github.com/linkease/nas-packages-luci package/lean luci/*
+merge_package main https://github.com/linkease/nas-packages-luci package/lean luci
 merge_package master https://github.com/linkease/nas-packages package multimedia
-merge_package master https://github.com/linkease/nas-packages package/network/services network/services/*
+merge_package master https://github.com/linkease/nas-packages package/network/services network/services
 
 # 取消部分config配置
 # sed -i '/CONFIG_PACKAGE_kmod-usb-audio/d' ./.config
