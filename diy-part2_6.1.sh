@@ -20,6 +20,7 @@ function merge_package(){
 
 # 添加额外软件到不同目录
 # merge_package main https://github.com/sirpdboy/sirpdboy-package package/lean adguardhome luci-app-adguardhome
+# git clone --depth=1 -b main https://github.com/sirpdboy/luci-app-chatgpt-web package/lean/luci-app-chatgpt-web
 
 # 修改管理地址
 sed -i 's/192.168.1.1/192.168.1.1/g' package/base-files/files/bin/config_generate
