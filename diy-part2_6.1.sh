@@ -19,7 +19,6 @@ function merge_package(){
     for folder in "$@"; do
         mv -f "$folder" "$rootdir/$localdir"
     done
-
     cd "$rootdir"
 }
 
