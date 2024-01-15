@@ -15,7 +15,7 @@ function merge_package(){
     cd "$tmpdir"
     git sparse-checkout init --cone
     git sparse-checkout set "$@"
-    mv -f "$@" "$rootdir"/"$localdir" && cd "$rootdir"
+    mv -f "$3" "$rootdir"/"$localdir" && cd "$rootdir"
 }
 
 # 修改管理地址
