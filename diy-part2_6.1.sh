@@ -18,10 +18,6 @@ function merge_package(){
     mv -f "$@" "$rootdir"/"$localdir" && cd "$rootdir"
 }
 
-# 添加额外软件到不同目录
-# merge_package main https://github.com/sirpdboy/sirpdboy-package package/lean adguardhome luci-app-adguardhome
-# git clone --depth=1 -b main https://github.com/sirpdboy/luci-app-chatgpt-web package/lean/luci-app-chatgpt-web
-
 # 修改管理地址
 sed -i 's/192.168.1.1/192.168.1.1/g' package/base-files/files/bin/config_generate
 
@@ -70,53 +66,37 @@ curl -fsSL https://raw.githubusercontent.com/ywt114/diy/main/system.lua > feeds/
 # find ./ | grep Makefile | grep pdnsd-alt | xargs rm -f
 \rm -rf feeds/packages/net/v2ray-geodata feeds/packages/net/pdnsd-alt
 # \rm -rf feeds/packages/lang/golang
-# git clone -b 21.x https://github.com/sbwml/packages_lang_golang feeds/packages/lang/golang
-git clone -b master https://github.com/sbwml/luci-app-alist package/lean/alist
+# git clone --depth=1 -b 21.x https://github.com/sbwml/packages_lang_golang feeds/packages/lang/golang
+git clone --depth=1 -b master https://github.com/sbwml/luci-app-alist package/lean/alist
 \rm -rf feeds/packages/net/mosdns feeds/luci/applications/luci-app-mosdns feeds/packages/utils/v2dat
-git clone -b v5 https://github.com/sbwml/luci-app-mosdns package/lean/mosdns
+git clone --depth=1 -b v5 https://github.com/sbwml/luci-app-mosdns package/lean/mosdns
 \rm -rf feeds/luci/applications/luci-app-adbyby-plus
-git clone -b main https://github.com/ywt114/luci-app-adbyby-plus-lite package/lean/luci-app-adbyby-plus-lite
+git clone --depth=1 -b main https://github.com/ywt114/luci-app-adbyby-plus-lite package/lean/luci-app-adbyby-plus-lite
 \rm -rf feeds/packages/net/msd_lite
-git clone -b main https://github.com/ywt114/luci-app-msd_lite package/lean/msd_lite
-git clone -b master https://github.com/ywt114/luci-app-gpsysupgrade package/lean/luci-app-gpsysupgrade
+git clone --depth=1 -b main https://github.com/ywt114/luci-app-msd_lite package/lean/msd_lite
+git clone --depth=1 -b master https://github.com/ywt114/luci-app-gpsysupgrade package/lean/luci-app-gpsysupgrade
 \rm -rf feeds/packages/net/smartdns feeds/luci/applications/luci-app-smartdns
-git clone -b master https://github.com/pymumu/openwrt-smartdns package/lean/smartdns
-git clone -b lede https://github.com/pymumu/luci-app-smartdns package/lean/luci-app-smartdns
-git clone -b master https://github.com/kenzok8/small package/lean/small
+git clone --depth=1 -b master https://github.com/pymumu/openwrt-smartdns package/lean/smartdns
+git clone --depth=1 -b lede https://github.com/pymumu/luci-app-smartdns package/lean/luci-app-smartdns
+git clone --depth=1 -b master https://github.com/kenzok8/small package/lean/small
 \rm -rf package/lean/small/luci-app-bypass package/lean/small/luci-app-vssr package/lean/small/luci-app-passwall2
-git clone -b master https://github.com/kenzok8/openwrt-packages package/lean/openwrt-packages
-\cp -rf package/lean/openwrt-packages/luci-app-openclash package/lean/small
-\rm -rf package/lean/openwrt-packages
+merge_package master https://github.com/kenzok8/openwrt-packages package/lean/small luci-app-openclash
 \rm -rf feeds/packages/net/socat feeds/luci/applications/luci-app-socat
-git clone -b master https://github.com/xiangfeidexiaohuo/extra-ipk package/lean/extra-ipk
-\cp -rf package/lean/extra-ipk/op-socat package/lean/socat
-\cp -rf package/lean/extra-ipk/op-homebox package/lean/homebox
-\rm -rf package/lean/extra-ipk
+merge_package master https://github.com/xiangfeidexiaohuo/extra-ipk package/lean/socat op-socat
+merge_package master https://github.com/xiangfeidexiaohuo/extra-ipk package/lean/homebox op-homebox
 \rm -rf feeds/packages/net/adguardhome feeds/luci/applications/luci-app-adguardhome
-git clone -b main https://github.com/sirpdboy/sirpdboy-package package/lean/sirpdboy-package
-\cp -rf package/lean/sirpdboy-package/adguardhome package/lean
-\cp -rf package/lean/sirpdboy-package/luci-app-adguardhome package/lean
-\rm -rf package/lean/sirpdboy-package
-git clone -b main https://github.com/sirpdboy/luci-app-chatgpt-web package/lean/luci-app-chatgpt-web
-git clone -b master https://github.com/sirpdboy/luci-app-advanced package/lean/luci-app-advanced
-git clone -b master https://github.com/sirpdboy/luci-app-autotimeset package/lean/luci-app-autotimeset
+merge_package main https://github.com/sirpdboy/sirpdboy-package package/lean adguardhome luci-app-adguardhome
+git clone --depth=1 -b main https://github.com/sirpdboy/luci-app-chatgpt-web package/lean/luci-app-chatgpt-web
+git clone --depth=1 -b master https://github.com/sirpdboy/luci-app-advanced package/lean/luci-app-advanced
+git clone --depth=1 -b master https://github.com/sirpdboy/luci-app-autotimeset package/lean/luci-app-autotimeset
 sed -i 's/control"/system"/g' package/lean/luci-app-autotimeset/luasrc/controller/autotimeset.lua
 sed -i 's/control]/system]/g' package/lean/luci-app-autotimeset/luasrc/view/autotimeset/log.htm
-git clone -b main https://github.com/linkease/openwrt-app-actions package/lean/openwrt-app-actions
-\cp -rf package/lean/openwrt-app-actions/applications/luci-app-multiaccountdial package/lean
-\rm -rf package/lean/openwrt-app-actions
-git clone -b main https://github.com/linkease/istore package/lean/istore
-# sed -i 's/+luci-lib-ipkg/+luci-base/g' package/lean/istore/luci/luci-app-store/Makefile
-\cp -rf package/lean/istore/luci/* package/lean
-\cp -rf package/lean/istore/translations package/lean
-\rm -rf package/lean/istore
-git clone -b main https://github.com/linkease/nas-packages-luci package/lean/nas-packages-luci
-\cp -rf package/lean/nas-packages-luci/luci/* package/lean
-\rm -rf package/lean/nas-packages-luci
-git clone -b master https://github.com/linkease/nas-packages package/lean/nas-packages
-\cp -rf package/lean/nas-packages/network/services/* package/network/services
-\cp -rf package/lean/nas-packages/multimedia package
-\rm -rf package/lean/nas-packages
+merge_package main https://github.com/linkease/openwrt-app-actions package/lean applications/luci-app-multiaccountdial
+merge_package main https://github.com/linkease/istore package/lean translations luci/* 
+# sed -i 's/+luci-lib-ipkg/+luci-base/g' package/lean/luci-app-store/Makefile
+merge_package main https://github.com/linkease/nas-packages-luci package/lean luci/*
+merge_package master https://github.com/linkease/nas-packages package multimedia
+merge_package master https://github.com/linkease/nas-packages package/network/services network/services/*
 
 # 取消部分config配置
 # sed -i '/CONFIG_PACKAGE_kmod-usb-audio/d' ./.config
