@@ -2,7 +2,7 @@
 # 描述: OpenWrt DIY script part 2 (放在安装feeds之后)
 #!/bin/bash
 
-function merge_package(){
+function merge_package() {
     # 参数1是分支名,参数2是库地址。所有文件下载到指定路径。
     # 同一个仓库下载多个文件夹直接在后面跟文件名或路径，空格分开。
     trap 'rm -rf "$tmpdir"' EXIT
@@ -15,7 +15,13 @@ function merge_package(){
     cd "$tmpdir"
     git sparse-checkout init --cone
     git sparse-checkout set "$@"
-    mv -f "$3" "$rootdir"/"$localdir" && cd "$rootdir"
+    
+    # 使用循环逐个移动文件夹
+    for folder in "$@"; do
+        mv -f "$folder" "$rootdir/$localdir"
+    done
+
+    cd "$rootdir"
 }
 
 # 修改管理地址
