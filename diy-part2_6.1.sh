@@ -97,11 +97,11 @@ git clone --depth=1 -b master https://github.com/sirpdboy/luci-app-autotimeset p
 sed -i 's/control"/system"/g' package/lean/luci-app-autotimeset/luasrc/controller/autotimeset.lua
 sed -i 's/control]/system]/g' package/lean/luci-app-autotimeset/luasrc/view/autotimeset/log.htm
 merge_package main https://github.com/linkease/openwrt-app-actions package/lean applications/luci-app-multiaccountdial
-merge_package main https://github.com/linkease/istore package/lean translations luci
+merge_package main https://github.com/linkease/istore package/lean translations luci/luci-app-store luci/luci-lib-taskd luci/luci-lib-xterm luci/taskd
 # sed -i 's/+luci-lib-ipkg/+luci-base/g' package/lean/luci-app-store/Makefile
-merge_package main https://github.com/linkease/nas-packages-luci package/lean luci
+merge_package main https://github.com/linkease/nas-packages-luci package/lean luci/luci-app-ddnsto luci/luci-app-istorex luci/luci-app-linkease luci/luci-app-quickstart luci/luci-app-unishare luci/luci-lib-iform
 merge_package master https://github.com/linkease/nas-packages package multimedia
-merge_package master https://github.com/linkease/nas-packages package/network/services network/services
+merge_package master https://github.com/linkease/nas-packages package/network/services network/services/ddnsto network/services/linkease network/services/quickstart network/services/unishare network/services/webdav2
 
 # 取消部分config配置
 # sed -i '/CONFIG_PACKAGE_kmod-usb-audio/d' ./.config
