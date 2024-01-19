@@ -24,7 +24,7 @@ function merge_package(){
     for folder in "$@"; do
         mv -f "$folder" "$rootdir/$localdir"
     done
-    cd - > /dev/null
+    cd "$rootdir"
 }
 
 # 修改管理地址
