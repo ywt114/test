@@ -8,7 +8,7 @@ function merge_package() {
     if [[ $# -lt 3 ]]; then
     	echo "Syntax error: [$#] [$*]" >&2
         return 1
-	fi
+    fi
     trap 'rm -rf "$tmpdir"' EXIT
     branch="$1" curl="$2" target_dir="$3" && shift 3
     rootdir="$PWD"
