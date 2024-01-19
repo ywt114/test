@@ -3,8 +3,13 @@
 #!/bin/bash
 
 function merge_package(){
-    # 参数1是分支名,参数2是库地址。所有文件下载到指定路径。
+    # 参数1是分支名,参数2是库地址。参数3是所有文件下载到指定路径。
     # 同一个仓库下载多个文件夹直接在后面跟文件名或路径，空格分开。
+	if [[ $# -lt 3 ]]
+	then
+		ECHO "Syntax error: [$#] [$*]"
+		return 0
+	fi
     trap 'rm -rf "$tmpdir"' EXIT
     branch="$1" curl="$2" target_dir="$3" && shift 3
     rootdir="$PWD"
@@ -19,7 +24,7 @@ function merge_package(){
     for folder in "$@"; do
         mv -f "$folder" "$rootdir/$localdir"
     done
-    cd "$rootdir"
+    cd - > /dev/null
 }
 
 # 修改管理地址
