@@ -7,7 +7,7 @@ function merge_package(){
     # 同一个仓库下载多个文件夹直接在后面跟文件名或路径，空格分开。
 	if [[ $# -lt 3 ]]
 	then
-		ECHO "Syntax error: [$#] [$*]"
+		echo "Syntax error: [$#] [$*]"
 		return 0
 	fi
     trap 'rm -rf "$tmpdir"' EXIT
