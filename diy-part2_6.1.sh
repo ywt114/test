@@ -88,17 +88,17 @@ git clone --depth=1 -b master https://github.com/pymumu/openwrt-smartdns package
 git clone --depth=1 -b lede https://github.com/pymumu/luci-app-smartdns package/lean/luci-app-smartdns
 git clone --depth=1 -b master https://github.com/kenzok8/small package/lean/small
 \rm -rf package/lean/small/luci-app-bypass package/lean/small/luci-app-vssr package/lean/small/luci-app-passwall2
+git clone --depth=1 -b main https://github.com/sirpdboy/luci-app-chatgpt-web package/lean/luci-app-chatgpt-web
+git clone --depth=1 -b master https://github.com/sirpdboy/luci-app-advanced package/lean/luci-app-advanced
+git clone --depth=1 -b master https://github.com/sirpdboy/luci-app-autotimeset package/lean/luci-app-autotimeset
+sed -i 's/control"/system"/g' package/lean/luci-app-autotimeset/luasrc/controller/autotimeset.lua
+sed -i 's/control]/system]/g' package/lean/luci-app-autotimeset/luasrc/view/autotimeset/log.htm
 merge_package master https://github.com/kenzok8/openwrt-packages package/lean/small luci-app-openclash
 \rm -rf feeds/packages/net/socat feeds/luci/applications/luci-app-socat
 merge_package master https://github.com/xiangfeidexiaohuo/extra-ipk package/lean/socat op-socat
 merge_package master https://github.com/xiangfeidexiaohuo/extra-ipk package/lean/homebox op-homebox
 \rm -rf feeds/packages/net/adguardhome feeds/luci/applications/luci-app-adguardhome
 merge_package main https://github.com/sirpdboy/sirpdboy-package package/lean adguardhome luci-app-adguardhome
-git clone --depth=1 -b main https://github.com/sirpdboy/luci-app-chatgpt-web package/lean/luci-app-chatgpt-web
-git clone --depth=1 -b master https://github.com/sirpdboy/luci-app-advanced package/lean/luci-app-advanced
-git clone --depth=1 -b master https://github.com/sirpdboy/luci-app-autotimeset package/lean/luci-app-autotimeset
-sed -i 's/control"/system"/g' package/lean/luci-app-autotimeset/luasrc/controller/autotimeset.lua
-sed -i 's/control]/system]/g' package/lean/luci-app-autotimeset/luasrc/view/autotimeset/log.htm
 merge_package main https://github.com/linkease/openwrt-app-actions package/lean applications/luci-app-multiaccountdial
 merge_package main https://github.com/linkease/istore package/lean translations luci/luci-app-store luci/luci-lib-taskd luci/luci-lib-xterm luci/taskd
 # sed -i 's/+luci-lib-ipkg/+luci-base/g' package/lean/luci-app-store/Makefile
