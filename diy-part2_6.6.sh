@@ -122,6 +122,13 @@ git clone --depth=1 -b master https://github.com/linkease/nas-packages package/l
 \cp -rf package/lean/nas-packages/multimedia package
 \rm -rf package/lean/nas-packages
 
+# 取消部分config配置
+sed -i '/mt7921/d' ./.config
+# sed -i '/CONFIG_DRIVER_11AC_SUPPORT/d' ./.config
+# sed -i '/CONFIG_DRIVER_11AX_SUPPORT/d' ./.config
+# sed -i '/CONFIG_PACKAGE_wpad/d' ./.config
+# sed -i '/CONFIG_PACKAGE_wpad-openssl/d' ./.config
+
 # 修改vermagic版本号
 # curl -fsSL https://raw.githubusercontent.com/ywt114/diy/main/vermagic-6.6 > vermagic
 # sed -i 's/grep '\''=\[ym\]'\'' $(LINUX_DIR)\/.config.set | LC_ALL=C sort | $(MKHASH) md5 >/cp $(TOPDIR)\/vermagic/g' include/kernel-defaults.mk
