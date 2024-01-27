@@ -17,7 +17,7 @@ env:
   DIY_P2_SH: diy-part2_6.1.sh
   REVERT_COMMIT: false
   UPLOAD_FIRMWARE: false
-  UPLOAD_RELEASE: true
+  UPLOAD_RELEASE: false
   TZ: Asia/Shanghai
 
 jobs:
