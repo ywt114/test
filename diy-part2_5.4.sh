@@ -123,6 +123,7 @@ git clone -b master https://github.com/linkease/nas-packages package/lean/nas-pa
 \rm -rf package/lean/nas-packages
 
 # 取消部分config配置
+sed -i 's/iperf3-ssl[[:space:]]*//g' target/linux/x86/Makefile
 sed -i '/mt7921/d' ./.config
 sed -i '/CONFIG_DRIVER_11AC_SUPPORT/d' ./.config
 sed -i '/CONFIG_DRIVER_11AX_SUPPORT/d' ./.config
