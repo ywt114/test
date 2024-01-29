@@ -122,6 +122,9 @@ git clone --depth=1 -b master https://github.com/linkease/nas-packages package/l
 \cp -rf package/lean/nas-packages/multimedia package
 \rm -rf package/lean/nas-packages
 
+# 取消部分config配置
+sed -i 's/iperf3-ssl[[:space:]]*//g' target/linux/x86/Makefile
+
 # 修改vermagic版本号
 # curl -fsSL https://raw.githubusercontent.com/ywt114/diy/main/vermagic-5.15 > vermagic
 # sed -i 's/grep '\''=\[ym\]'\'' $(LINUX_DIR)\/.config.set | LC_ALL=C sort | $(MKHASH) md5 >/cp $(TOPDIR)\/vermagic/g' include/kernel-defaults.mk
