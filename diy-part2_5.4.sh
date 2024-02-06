@@ -129,6 +129,9 @@ sed -i '/CONFIG_DRIVER_11AC_SUPPORT/d' ./.config
 sed -i '/CONFIG_DRIVER_11AX_SUPPORT/d' ./.config
 sed -i '/CONFIG_PACKAGE_wpad/d' ./.config
 sed -i '/CONFIG_PACKAGE_wpad-openssl/d' ./.config
+# sed -i '/CONFIG_PACKAGE_kmod-usb-audio/d' ./.config
+# echo "# CONFIG_PACKAGE_kmod-usb-audio is not set" >> ./.config
+# echo "# CONFIG_PACKAGE_kmod-media-core is not set" >> ./.config
 
 # 修改vermagic版本号
 # curl -fsSL https://raw.githubusercontent.com/ywt114/diy/main/vermagic-5.4 > vermagic
