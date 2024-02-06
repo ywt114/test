@@ -47,7 +47,7 @@ sed -i "s/DISTRIB_ID='*.*'/DISTRIB_ID='OpenWrt'/g" package/base-files/files/etc/
 sed -i "s/DISTRIB_DESCRIPTION='*.*'/DISTRIB_DESCRIPTION='OpenWrt'/g"  package/base-files/files/etc/openwrt_release
 sed -i '/(<%=pcdata(ver.luciversion)%>)/a\      built by test' package/lean/autocore/files/x86/index.htm
 echo -n "$(date +'%Y%m%d')" > package/base-files/files/etc/openwrt_version
-curl -fsSL https://raw.githubusercontent.com/ywt114/diy/main/banner_OPENWRT > package/base-files/files/etc/banner
+curl -fsSL https://raw.githubusercontent.com/ywt114/diy/main/banner_test > package/base-files/files/etc/banner
 
 # 修改部分默认设置
 sed -i "/exit 0/i sed -i '\/oui\/d' \/etc\/opkg\/distfeeds.conf" package/lean/default-settings/files/zzz-default-settings
