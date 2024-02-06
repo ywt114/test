@@ -106,21 +106,18 @@ git clone --depth=1 -b master https://github.com/sirpdboy/luci-app-advanced pack
 git clone --depth=1 -b master https://github.com/sirpdboy/luci-app-autotimeset package/lean/luci-app-autotimeset
 sed -i 's/control"/system"/g' package/lean/luci-app-autotimeset/luasrc/controller/autotimeset.lua
 sed -i 's/control]/system]/g' package/lean/luci-app-autotimeset/luasrc/view/autotimeset/log.htm
-git clone --depth=1 -b main https://github.com/linkease/openwrt-app-actions package/lean/openwrt-app-actions
-\cp -rf package/lean/openwrt-app-actions/applications/luci-app-multiaccountdial package/lean
-\rm -rf package/lean/openwrt-app-actions
-git clone --depth=1 -b main https://github.com/linkease/istore package/lean/istore
-# sed -i 's/+luci-lib-ipkg/+luci-base/g' package/lean/istore/luci/luci-app-store/Makefile
-\cp -rf package/lean/istore/luci/* package/lean
-\cp -rf package/lean/istore/translations package/lean
-\rm -rf package/lean/istore
-git clone --depth=1 -b main https://github.com/linkease/nas-packages-luci package/lean/nas-packages-luci
-\cp -rf package/lean/nas-packages-luci/luci/* package/lean
-\rm -rf package/lean/nas-packages-luci
-git clone --depth=1 -b master https://github.com/linkease/nas-packages package/lean/nas-packages
-\cp -rf package/lean/nas-packages/network/services/* package/network/services
-\cp -rf package/lean/nas-packages/multimedia package
-\rm -rf package/lean/nas-packages
+merge_package master https://github.com/kenzok8/openwrt-packages package/lean/small luci-app-openclash
+\rm -rf feeds/packages/net/socat feeds/luci/applications/luci-app-socat
+merge_package master https://github.com/xiangfeidexiaohuo/extra-ipk package/lean/socat op-socat
+merge_package master https://github.com/xiangfeidexiaohuo/extra-ipk package/lean/homebox op-homebox
+\rm -rf feeds/packages/net/adguardhome feeds/luci/applications/luci-app-adguardhome
+merge_package main https://github.com/sirpdboy/sirpdboy-package package/lean adguardhome luci-app-adguardhome
+merge_package main https://github.com/linkease/openwrt-app-actions package/lean applications/luci-app-multiaccountdial
+merge_package main https://github.com/linkease/istore package/lean translations luci/luci-app-store luci/luci-lib-taskd luci/luci-lib-xterm luci/taskd
+# sed -i 's/+luci-lib-ipkg/+luci-base/g' package/lean/luci-app-store/Makefile
+merge_package main https://github.com/linkease/nas-packages-luci package/lean luci/luci-app-ddnsto luci/luci-app-istorex luci/luci-app-linkease luci/luci-app-quickstart luci/luci-app-unishare luci/luci-lib-iform
+merge_package master https://github.com/linkease/nas-packages package multimedia
+merge_package master https://github.com/linkease/nas-packages package/network/services network/services/ddnsto network/services/linkease network/services/quickstart network/services/unishare network/services/webdav2
 
 # 取消部分config配置
 sed -i 's/iperf3-ssl[[:space:]]*//g' target/linux/x86/Makefile
