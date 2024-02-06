@@ -88,19 +88,6 @@ git clone --depth=1 -b master https://github.com/pymumu/openwrt-smartdns package
 git clone --depth=1 -b lede https://github.com/pymumu/luci-app-smartdns package/lean/luci-app-smartdns
 git clone --depth=1 -b master https://github.com/kenzok8/small package/lean/small
 \rm -rf package/lean/small/luci-app-bypass package/lean/small/luci-app-vssr package/lean/small/luci-app-passwall2
-git clone --depth=1 -b master https://github.com/kenzok8/openwrt-packages package/lean/openwrt-packages
-\cp -rf package/lean/openwrt-packages/luci-app-openclash package/lean/small
-\rm -rf package/lean/openwrt-packages
-\rm -rf feeds/packages/net/socat feeds/luci/applications/luci-app-socat
-git clone --depth=1 -b master https://github.com/xiangfeidexiaohuo/extra-ipk package/lean/extra-ipk
-\cp -rf package/lean/extra-ipk/op-socat package/lean/socat
-\cp -rf package/lean/extra-ipk/op-homebox package/lean/homebox
-\rm -rf package/lean/extra-ipk
-\rm -rf feeds/packages/net/adguardhome feeds/luci/applications/luci-app-adguardhome
-git clone --depth=1 -b main https://github.com/sirpdboy/sirpdboy-package package/lean/sirpdboy-package
-\cp -rf package/lean/sirpdboy-package/adguardhome package/lean
-\cp -rf package/lean/sirpdboy-package/luci-app-adguardhome package/lean
-\rm -rf package/lean/sirpdboy-package
 git clone --depth=1 -b main https://github.com/sirpdboy/luci-app-chatgpt-web package/lean/luci-app-chatgpt-web
 git clone --depth=1 -b master https://github.com/sirpdboy/luci-app-advanced package/lean/luci-app-advanced
 git clone --depth=1 -b master https://github.com/sirpdboy/luci-app-autotimeset package/lean/luci-app-autotimeset
