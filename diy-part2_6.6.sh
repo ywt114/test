@@ -105,6 +105,8 @@ merge_package main https://github.com/linkease/istore package/lean translations 
 merge_package main https://github.com/linkease/nas-packages-luci package/lean luci/luci-app-ddnsto luci/luci-app-istorex luci/luci-app-linkease luci/luci-app-quickstart luci/luci-app-unishare luci/luci-lib-iform
 merge_package master https://github.com/linkease/nas-packages package multimedia
 merge_package master https://github.com/linkease/nas-packages package/network/services network/services/ddnsto network/services/linkease network/services/quickstart network/services/unishare network/services/webdav2
+merge_package main https://github.com/Carseason/openwrt-packages package/lean luci/luci-app-istorego luci/luci-app-routerdog
+merge_package main https://github.com/Carseason/openwrt-packages package/network/services network/services/istorego network/services/routergo
 
 # 取消部分config配置
 sed -i 's/iperf3-ssl[[:space:]]*//g' target/linux/x86/Makefile
