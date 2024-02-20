@@ -121,6 +121,11 @@ git clone --depth=1 -b master https://github.com/linkease/nas-packages package/l
 \cp -rf package/lean/nas-packages/network/services/* package/network/services
 \cp -rf package/lean/nas-packages/multimedia package
 \rm -rf package/lean/nas-packages
+git clone --depth=1 -b main https://github.com/Carseason/openwrt-packages package/lean/openwrt-packages
+\cp -rf package/lean/openwrt-packages/network/services/* package/network/services
+\cp -rf package/lean/openwrt-packages/luci/luci-app-istorego package/lean
+\cp -rf package/lean/openwrt-packages/luci/luci-app-routerdog package/lean
+\rm -rf package/lean/openwrt-packages
 
 # 取消部分config配置
 sed -i 's/iperf3-ssl[[:space:]]*//g' target/linux/x86/Makefile
