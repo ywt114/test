@@ -118,7 +118,6 @@ git clone --depth=1 -b main https://github.com/linkease/nas-packages-luci packag
 sed -i 's/istorex_template")).leaf/istorex_template"), _("iStoreX"), 3).leaf/g' package/lean/nas-packages-luci/luci/luci-app-istorex/luasrc/controller/istorex.lua
 \cp -rf package/lean/nas-packages-luci/luci/* package/lean
 \rm -rf package/lean/nas-packages-luci
-
 git clone --depth=1 -b master https://github.com/linkease/nas-packages package/lean/nas-packages
 \cp -rf package/lean/nas-packages/network/services/* package/network/services
 \cp -rf package/lean/nas-packages/multimedia package
