@@ -130,3 +130,6 @@ sed -i 's/Variable1 = "*.*"/Variable1 = "ywt114"/g' package/lean/luci-app-gpsysu
 sed -i 's/Variable2 = "*.*"/Variable2 = "test"/g' package/lean/luci-app-gpsysupgrade/root/usr/bin/upgrade.lua
 sed -i 's/Variable3 = "*.*"/Variable3 = "x86_64"/g' package/lean/luci-app-gpsysupgrade/root/usr/bin/upgrade.lua
 sed -i 's/Variable4 = "*.*"/Variable4 = "6.6"/g' package/lean/luci-app-gpsysupgrade/root/usr/bin/upgrade.lua
+
+cd package/lean/small/luci-app-passwall
+git reset --hard 9c7039e73a023b271b052fe7250d4cb4d6cde36e
