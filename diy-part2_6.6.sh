@@ -15,7 +15,7 @@ function merge_package() {
     localdir="$target_dir"
     [ -d "$localdir" ] || mkdir -p "$localdir"
     tmpdir="$(mktemp -d)" || exit 1
-    git clone -b "$branch" --depth 1 --filter=blob:none --sparse "$curl" "$tmpdir"
+    git clone -b "$branch" --filter=blob:none --sparse "$curl" "$tmpdir"
     cd "$tmpdir"
     git sparse-checkout init --cone
     git sparse-checkout set "$@"
@@ -74,27 +74,25 @@ curl -fsSL https://raw.githubusercontent.com/ywt114/diy/main/system.lua > feeds/
 # find ./ | grep Makefile | grep pdnsd-alt | xargs rm -f
 \rm -rf feeds/packages/net/v2ray-geodata feeds/packages/net/pdnsd-alt
 \rm -rf feeds/packages/lang/golang
-git clone --depth=1 -b 22.x https://github.com/sbwml/packages_lang_golang feeds/packages/lang/golang
+git clone -b 22.x https://github.com/sbwml/packages_lang_golang feeds/packages/lang/golang
 rm -rf feeds/packages/net/curl
-git clone --depth=1 -b main https://github.com/sbwml/feeds_packages_net_curl feeds/packages/net/curl
-git clone --depth=1 -b master https://github.com/sbwml/luci-app-alist package/lean/alist
+git clone -b main https://github.com/sbwml/feeds_packages_net_curl feeds/packages/net/curl
+git clone -b master https://github.com/sbwml/luci-app-alist package/lean/alist
 \rm -rf feeds/packages/net/mosdns feeds/luci/applications/luci-app-mosdns feeds/packages/utils/v2dat
-git clone --depth=1 -b v5 https://github.com/sbwml/luci-app-mosdns package/lean/mosdns
+git clone -b v5 https://github.com/sbwml/luci-app-mosdns package/lean/mosdns
 \rm -rf feeds/luci/applications/luci-app-adbyby-plus
-git clone --depth=1 -b main https://github.com/ywt114/luci-app-adbyby-plus-lite package/lean/luci-app-adbyby-plus-lite
+git clone -b main https://github.com/ywt114/luci-app-adbyby-plus-lite package/lean/luci-app-adbyby-plus-lite
 \rm -rf feeds/packages/net/msd_lite
-git clone --depth=1 -b main https://github.com/ywt114/luci-app-msd_lite package/lean/msd_lite
-git clone --depth=1 -b master https://github.com/ywt114/luci-app-gpsysupgrade package/lean/luci-app-gpsysupgrade
+git clone -b main https://github.com/ywt114/luci-app-msd_lite package/lean/msd_lite
+git clone -b master https://github.com/ywt114/luci-app-gpsysupgrade package/lean/luci-app-gpsysupgrade
 \rm -rf feeds/packages/net/smartdns feeds/luci/applications/luci-app-smartdns
-git clone --depth=1 -b master https://github.com/pymumu/openwrt-smartdns package/lean/smartdns
-git clone --depth=1 -b lede https://github.com/pymumu/luci-app-smartdns package/lean/luci-app-smartdns
-
+git clone -b master https://github.com/pymumu/openwrt-smartdns package/lean/smartdns
+git clone -b lede https://github.com/pymumu/luci-app-smartdns package/lean/luci-app-smartdns
 git clone -b master https://github.com/kenzok8/small package/lean/small
 \rm -rf package/lean/small/luci-app-bypass package/lean/small/luci-app-vssr package/lean/small/luci-app-passwall2
-
-git clone --depth=1 -b main https://github.com/sirpdboy/luci-app-chatgpt-web package/lean/luci-app-chatgpt-web
-git clone --depth=1 -b master https://github.com/sirpdboy/luci-app-advanced package/lean/luci-app-advanced
-git clone --depth=1 -b master https://github.com/sirpdboy/luci-app-autotimeset package/lean/luci-app-autotimeset
+git clone -b main https://github.com/sirpdboy/luci-app-chatgpt-web package/lean/luci-app-chatgpt-web
+git clone -b master https://github.com/sirpdboy/luci-app-advanced package/lean/luci-app-advanced
+git clone -b master https://github.com/sirpdboy/luci-app-autotimeset package/lean/luci-app-autotimeset
 sed -i 's/control"/system"/g' package/lean/luci-app-autotimeset/luasrc/controller/autotimeset.lua
 sed -i 's/control]/system]/g' package/lean/luci-app-autotimeset/luasrc/view/autotimeset/log.htm
 merge_package master https://github.com/kenzok8/openwrt-packages package/lean/small luci-app-openclash
