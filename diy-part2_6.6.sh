@@ -136,4 +136,5 @@ sed -i 's/Variable4 = "*.*"/Variable4 = "6.6"/g' package/lean/luci-app-gpsysupgr
 # 回退passwall到2024年1月29日旧版本
 cd package/lean/small/luci-app-passwall
 git reset --hard 98d4c730187a94fb260060c3cb637ffa19e72eaa
+cd ../../../..
 \cp -rf package/lean/mosdns/v2dat package/lean/small
