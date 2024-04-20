@@ -112,7 +112,7 @@ merge_package main https://github.com/Carseason/openwrt-packages package/lean lu
 merge_package main https://github.com/Carseason/openwrt-packages package/network/services network/services/istorego network/services/routergo
 
 # 创建automake-1.15软连接
-ln -sf /usr/bin/automake /usr/bin/automake-1.15
+sudo -E ln -sf /usr/bin/automake /usr/bin/automake-1.15
 
 # 取消部分config配置
 sed -i 's/iperf3-ssl[[:space:]]*//g' target/linux/x86/Makefile
