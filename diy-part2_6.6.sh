@@ -111,6 +111,9 @@ merge_package master https://github.com/linkease/nas-packages package/network/se
 merge_package main https://github.com/Carseason/openwrt-packages package/lean luci/luci-app-istorego luci/luci-app-routerdog
 merge_package main https://github.com/Carseason/openwrt-packages package/network/services network/services/istorego network/services/routergo
 
+# 创建automake-1.15软连接
+sudo ln -s /usr/bin/automake /usr/bin/automake-1.15
+
 # 取消部分config配置
 sed -i 's/iperf3-ssl[[:space:]]*//g' target/linux/x86/Makefile
 # sed -i '/CONFIG_PACKAGE_kmod-usb-audio/d' ./.config
