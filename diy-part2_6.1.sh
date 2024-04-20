@@ -131,7 +131,7 @@ git clone -b main https://github.com/Carseason/openwrt-packages package/lean/ope
 \rm -rf package/lean/openwrt-packages
 
 # 创建automake-1.15软连接
-ln -sf /usr/bin/automake /usr/bin/automake-1.15
+sudo -E ln -sf /usr/bin/automake /usr/bin/automake-1.15
 
 # 取消部分config配置
 sed -i 's/iperf3-ssl[[:space:]]*//g' target/linux/x86/Makefile
