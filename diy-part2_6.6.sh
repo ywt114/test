@@ -109,7 +109,7 @@ sed -i 's/istorex_template")).leaf/istorex_template"), _("iStoreX"), 3).leaf/g' 
 merge_package master https://github.com/linkease/nas-packages package multimedia
 merge_package master https://github.com/linkease/nas-packages package/network/services network/services/ddnsto network/services/linkease network/services/quickstart network/services/unishare network/services/webdav2
 merge_package main https://github.com/Carseason/openwrt-packages package/lean luci/luci-app-istorego luci/luci-app-routerdog
-merge_package main https://github.com/Carseason/openwrt-packages package/network/services network/services/istorego network/services/routergo
+merge_package main https://github.com/Carseason/openwrt-packages package/network/services network/services/routergo
 
 # 创建automake-1.15软连接
 sudo -E ln -sf /usr/bin/automake /usr/bin/automake-1.15
