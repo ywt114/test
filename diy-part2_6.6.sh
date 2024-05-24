@@ -104,10 +104,10 @@ merge_package main https://github.com/sirpdboy/sirpdboy-package package/lean adg
 merge_package main https://github.com/linkease/openwrt-app-actions package/lean applications/luci-app-multiaccountdial
 merge_package main https://github.com/linkease/istore package/lean translations luci/luci-app-store luci/luci-lib-taskd luci/luci-lib-xterm luci/taskd
 # sed -i 's/+luci-lib-ipkg/+luci-base/g' package/lean/luci-app-store/Makefile
-merge_package main https://github.com/linkease/nas-packages-luci package/lean luci/luci-app-ddnsto luci/luci-app-istorex luci/luci-app-linkease luci/luci-app-quickstart luci/luci-app-unishare luci/luci-lib-iform
+merge_package main https://github.com/linkease/nas-packages-luci package/lean luci/luci-app-ddnsto luci/luci-app-istorex luci/luci-app-linkease luci/luci-app-quickstart luci/luci-app-unishare luci/luci-lib-iform luci/luci-nginxer
 sed -i 's/istorex_template")).leaf/istorex_template"), _("iStoreX"), 3).leaf/g' package/lean/luci-app-istorex/luasrc/controller/istorex.lua
 merge_package master https://github.com/linkease/nas-packages package multimedia
-merge_package master https://github.com/linkease/nas-packages package/network/services network/services/ddnsto network/services/linkease network/services/quickstart network/services/unishare network/services/webdav2
+merge_package master https://github.com/linkease/nas-packages package/network/services network/services/ddnsto network/services/linkease network/services/linkmount network/services/quickstart network/services/unishare network/services/webdav2
 merge_package main https://github.com/Carseason/openwrt-packages package/lean luci/luci-app-istorego luci/luci-app-routerdog
 merge_package main https://github.com/Carseason/openwrt-packages package/network/services network/services/routergo
 
