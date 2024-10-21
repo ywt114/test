@@ -66,8 +66,8 @@ sed -i 's/disabled=*.*/disabled=0/g' package/kernel/mac80211/files/lib/wifi/mac8
 sed -i 's/ssid=*.*/ssid=test/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
 
 # 添加关机按钮到系统选项
-curl -fsSL https://raw.githubusercontent.com/ywt114/diy/main/poweroff.htm > feeds/luci/modules/luci-mod-admin-full/luasrc/view/admin_system/poweroff.htm
-curl -fsSL https://raw.githubusercontent.com/ywt114/diy/main/system.lua > feeds/luci/modules/luci-mod-admin-full/luasrc/controller/admin/system.lua
+# curl -fsSL https://raw.githubusercontent.com/ywt114/diy/main/poweroff.htm > feeds/luci/modules/luci-mod-admin-full/luasrc/view/admin_system/poweroff.htm
+# curl -fsSL https://raw.githubusercontent.com/ywt114/diy/main/system.lua > feeds/luci/modules/luci-mod-admin-full/luasrc/controller/admin/system.lua
 
 # 删除替换默认源插件和添加插件
 # find ./ | grep Makefile | grep v2ray-geodata | xargs rm -f
@@ -89,13 +89,13 @@ git clone -b master https://github.com/ywt114/luci-app-gpsysupgrade package/lean
 git clone -b master https://github.com/pymumu/openwrt-smartdns package/lean/smartdns
 git clone -b lede https://github.com/pymumu/luci-app-smartdns package/lean/luci-app-smartdns
 git clone -b master https://github.com/kenzok8/small package/lean/small
-\rm -rf package/lean/small/luci-app-bypass package/lean/small/luci-app-vssr package/lean/small/luci-app-passwall2
+\rm -rf package/lean/small/luci-app-bypass package/lean/small/homeproxy package/lean/small/luci-app-mihomo package/lean/small/luci-app-mosdns package/lean/small/luci-app-passwall2
 git clone -b main https://github.com/sirpdboy/luci-app-chatgpt-web package/lean/luci-app-chatgpt-web
 git clone -b master https://github.com/sirpdboy/luci-app-advanced package/lean/luci-app-advanced
 git clone -b master https://github.com/sirpdboy/luci-app-autotimeset package/lean/luci-app-autotimeset
 sed -i 's/control"/system"/g' package/lean/luci-app-autotimeset/luasrc/controller/autotimeset.lua
 sed -i 's/control]/system]/g' package/lean/luci-app-autotimeset/luasrc/view/autotimeset/log.htm
-merge_package master https://github.com/kenzok8/openwrt-packages package/lean/small luci-app-openclash
+# merge_package master https://github.com/kenzok8/openwrt-packages package/lean/small luci-app-openclash
 \rm -rf feeds/packages/net/socat feeds/luci/applications/luci-app-socat
 merge_package master https://github.com/xiangfeidexiaohuo/extra-ipk package/lean/socat op-socat
 merge_package master https://github.com/xiangfeidexiaohuo/extra-ipk package/lean/homebox op-homebox
