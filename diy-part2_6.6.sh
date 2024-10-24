@@ -37,10 +37,9 @@ sed -i "s/wan 'eth1'/wan 'eth1'/g" package/base-files/files/etc/board.d/99-defau
 sed -i "s/net\/eth1/net\/eth1/g" package/base-files/files/etc/board.d/99-default_network
 
 # 修改默认皮肤
-# sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/Makefile
-sed -i 's/luci-app-opkg/luci-app-opkg +luci-theme-argon/g' feeds/luci/collections/luci/Makefile
-sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci-nginx/Makefile
-sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci-ssl-nginx/Makefile
+sed -i 's/luci-theme-bootstrap/luci-theme-argon-mod/g' feeds/luci/collections/luci/Makefile
+sed -i 's/luci-theme-bootstrap/luci-theme-argon-mod/g' feeds/luci/collections/luci-nginx/Makefile
+sed -i 's/luci-theme-bootstrap/luci-theme-argon-mod/g' feeds/luci/collections/luci-ssl-nginx/Makefile
 
 # 修改主机名以及一些显示信息
 sed -i "s/hostname='*.*'/hostname='test'/" package/base-files/files/bin/config_generate
@@ -67,8 +66,8 @@ sed -i 's/disabled=*.*/disabled=0/g' package/kernel/mac80211/files/lib/wifi/mac8
 sed -i 's/ssid=*.*/ssid=test/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
 
 # 添加关机按钮到系统选项
-curl -fsSL https://raw.githubusercontent.com/ywt114/diy/main/poweroff.htm > feeds/luci/modules/luci-mod-admin-mini/luasrc/view/mini/poweroff.htm
-curl -fsSL https://raw.githubusercontent.com/ywt114/diy/main/system.lua > feeds/luci/modules/luci-mod-admin-mini/luasrc/controller/mini/system.lua
+curl -fsSL https://raw.githubusercontent.com/ywt114/diy/main/poweroff.htm > feeds/luci/modules/luci-mod-admin-full/luasrc/view/admin_system/poweroff.htm
+curl -fsSL https://raw.githubusercontent.com/ywt114/diy/main/system.lua > feeds/luci/modules/luci-mod-admin-full/luasrc/controller/admin/system.lua
 
 # 删除替换默认源插件和添加插件
 # find ./ | grep Makefile | grep v2ray-geodata | xargs rm -f
