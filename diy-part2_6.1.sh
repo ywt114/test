@@ -126,7 +126,6 @@ git clone -b master https://github.com/linkease/nas-packages package/lean/nas-pa
 \cp -rf package/lean/nas-packages/network/services/* package/network/services
 \cp -rf package/lean/nas-packages/multimedia package
 \rm -rf package/lean/nas-packages
-github.com\/ywt114\/diy\/releases\/download\/services/
 sed -i 's/fw.koolcenter.com\/binary\/ddnsto/github.com\/ywt114\/diy\/releases\/download\/services/g' package/network/services/ddnsto/Makefile
 sed -i 's/fw.koolcenter.com\/binary\/iStoreEnhance/github.com\/ywt114\/diy\/releases\/download\/services/g' package/network/services/istoreenhance/Makefile
 sed -i 's/fw0.koolcenter.com\/binary\/LinkEase\/LinuxStorage/github.com\/ywt114\/diy\/releases\/download\/services/g' package/network/services/linkease/Makefile
