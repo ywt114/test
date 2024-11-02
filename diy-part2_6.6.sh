@@ -110,6 +110,10 @@ merge_package main https://github.com/linkease/nas-packages-luci package/lean lu
 sed -i 's/istorex_template")).leaf/istorex_template"), _("iStoreX"), 3).leaf/g' package/lean/luci-app-istorex/luasrc/controller/istorex.lua
 merge_package master https://github.com/linkease/nas-packages package multimedia
 merge_package master https://github.com/linkease/nas-packages package/network/services network/services/ddnsto network/services/linkease network/services/linkmount network/services/quickstart network/services/unishare network/services/webdav2
+sed -i 's/fw.koolcenter.com\/binary\/ddnsto/github.com\/ywt114\/diy\/releases\/download\/services/g' package/network/services/ddnsto/Makefile
+sed -i 's/fw.koolcenter.com\/binary\/iStoreEnhance/github.com\/ywt114\/diy\/releases\/download\/services/g' package/network/services/istoreenhance/Makefile
+sed -i 's/fw0.koolcenter.com\/binary\/LinkEase\/LinuxStorage/github.com\/ywt114\/diy\/releases\/download\/services/g' package/network/services/linkease/Makefile
+sed -i 's/fw0.koolcenter.com\/binary\/LinkEase\/AutoUpgrade\/linkmount/github.com\/ywt114\/diy\/releases\/download\/services/g' package/network/services/linkmount/Makefile
 merge_package main https://github.com/Carseason/openwrt-packages package/lean luci/luci-app-istorego luci/luci-app-routerdog
 merge_package main https://github.com/Carseason/openwrt-packages package/network/services network/services/routergo
 
