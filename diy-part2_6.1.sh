@@ -126,7 +126,7 @@ git clone -b master https://github.com/linkease/nas-packages package/lean/nas-pa
 \cp -rf package/lean/nas-packages/network/services/* package/network/services
 \cp -rf package/lean/nas-packages/multimedia package
 \rm -rf package/lean/nas-packages
-sed -i 's/fw0.koolcenter.com\/binary\/LinkEase\/AutoUpgrade\/linkmount/github.com\/user-attachments\/files\/17605192/g' package/network/services/linkmount/Makefile
+sed -i 's/fw0.koolcenter.com\/binary\/LinkEase\/AutoUpgrade\/linkmount/github.com\/user-attachments\/files\/17605501/g' package/network/services/linkmount/Makefile
 git clone -b main https://github.com/Carseason/openwrt-packages package/lean/openwrt-packages
 \cp -rf package/lean/openwrt-packages/network/services/* package/network/services
 \cp -rf package/lean/openwrt-packages/luci/luci-app-istorego package/lean
