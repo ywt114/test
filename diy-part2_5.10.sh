@@ -131,6 +131,11 @@ git clone -b master https://github.com/linkease/nas-packages package/lean/nas-pa
 # sed -i 's/fw.koolcenter.com\/binary\/iStoreEnhance/github.com\/ywt114\/diy\/releases\/download\/services/g' package/network/services/istoreenhance/Makefile
 # sed -i 's/fw0.koolcenter.com\/binary\/LinkEase\/LinuxStorage/github.com\/ywt114\/diy\/releases\/download\/services/g' package/network/services/linkease/Makefile
 # sed -i 's/fw0.koolcenter.com\/binary\/LinkEase\/AutoUpgrade\/linkmount/github.com\/ywt114\/diy\/releases\/download\/services/g' package/network/services/linkmount/Makefile
+git clone -b main https://github.com/Carseason/openwrt-packages package/lean/openwrt-packages
+\cp -rf package/lean/openwrt-packages/network/services/* package/network/services
+\cp -rf package/lean/openwrt-packages/luci/luci-app-istorego package/lean
+\cp -rf package/lean/openwrt-packages/luci/luci-app-routerdog package/lean
+\rm -rf package/lean/openwrt-packages
 
 # 创建automake-1.15软连接
 # sudo -E ln -sf /usr/bin/automake /usr/bin/automake-1.15
