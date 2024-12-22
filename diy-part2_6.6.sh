@@ -98,25 +98,44 @@ git clone -b master https://github.com/sirpdboy/luci-app-advanced package/lean/l
 git clone -b master https://github.com/sirpdboy/luci-app-autotimeset package/lean/luci-app-autotimeset
 sed -i 's/control"/system"/g' package/lean/luci-app-autotimeset/luasrc/controller/autotimeset.lua
 sed -i 's/control]/system]/g' package/lean/luci-app-autotimeset/luasrc/view/autotimeset/log.htm
-# merge_package master https://github.com/kenzok8/openwrt-packages package/lean/small luci-app-openclash
+# git clone -b master https://github.com/kenzok8/openwrt-packages package/lean/openwrt-packages
+# \cp -rf package/lean/openwrt-packages/luci-app-openclash package/lean/small
+# \rm -rf package/lean/openwrt-packages
 \rm -rf feeds/packages/net/socat feeds/luci/applications/luci-app-socat
-merge_package master https://github.com/xiangfeidexiaohuo/extra-ipk package/lean/socat op-socat
-merge_package master https://github.com/xiangfeidexiaohuo/extra-ipk package/lean/homebox op-homebox
+git clone -b master https://github.com/xiangfeidexiaohuo/extra-ipk package/lean/extra-ipk
+\cp -rf package/lean/extra-ipk/op-socat package/lean/socat
+\cp -rf package/lean/extra-ipk/op-homebox package/lean/homebox
+\rm -rf package/lean/extra-ipk
 \rm -rf feeds/packages/net/adguardhome feeds/luci/applications/luci-app-adguardhome
-merge_package main https://github.com/sirpdboy/sirpdboy-package package/lean adguardhome luci-app-adguardhome
-merge_package main https://github.com/linkease/openwrt-app-actions package/lean applications/luci-app-multiaccountdial
-merge_package main https://github.com/linkease/istore package/lean translations luci/luci-app-store luci/luci-lib-taskd luci/luci-lib-xterm luci/taskd
-# sed -i 's/+luci-lib-ipkg/+luci-base/g' package/lean/luci-app-store/Makefile
-merge_package main https://github.com/linkease/nas-packages-luci package/lean luci/luci-app-ddnsto luci/luci-app-istorex luci/luci-app-linkease luci/luci-app-quickstart luci/luci-app-unishare luci/luci-lib-iform luci/luci-nginxer
-sed -i 's/istorex_template")).leaf/istorex_template"), _("iStoreX"), 3).leaf/g' package/lean/luci-app-istorex/luasrc/controller/istorex.lua
-merge_package master https://github.com/linkease/nas-packages package multimedia
-merge_package master https://github.com/linkease/nas-packages package/network/services network/services/ddnsto network/services/linkease network/services/linkmount network/services/quickstart network/services/unishare network/services/webdav2
+git clone -b main https://github.com/sirpdboy/sirpdboy-package package/lean/sirpdboy-package
+\cp -rf package/lean/sirpdboy-package/adguardhome package/lean
+\cp -rf package/lean/sirpdboy-package/luci-app-adguardhome package/lean
+\rm -rf package/lean/sirpdboy-package
+git clone -b main https://github.com/linkease/openwrt-app-actions package/lean/openwrt-app-actions
+\cp -rf package/lean/openwrt-app-actions/applications/luci-app-multiaccountdial package/lean
+\rm -rf package/lean/openwrt-app-actions
+git clone -b main https://github.com/linkease/istore package/lean/istore
+# sed -i 's/+luci-lib-ipkg/+luci-base/g' package/lean/istore/luci/luci-app-store/Makefile
+\cp -rf package/lean/istore/luci/* package/lean
+\cp -rf package/lean/istore/translations package/lean
+\rm -rf package/lean/istore
+git clone -b main https://github.com/linkease/nas-packages-luci package/lean/nas-packages-luci
+sed -i 's/istorex_template")).leaf/istorex_template"), _("iStoreX"), 3).leaf/g' package/lean/nas-packages-luci/luci/luci-app-istorex/luasrc/controller/istorex.lua
+\cp -rf package/lean/nas-packages-luci/luci/* package/lean
+\rm -rf package/lean/nas-packages-luci
+git clone -b master https://github.com/linkease/nas-packages package/lean/nas-packages
+\cp -rf package/lean/nas-packages/network/services/* package/network/services
+\cp -rf package/lean/nas-packages/multimedia package
+\rm -rf package/lean/nas-packages
 # sed -i 's/fw.koolcenter.com\/binary\/ddnsto/github.com\/ywt114\/diy\/releases\/download\/services/g' package/network/services/ddnsto/Makefile
 # sed -i 's/fw.koolcenter.com\/binary\/iStoreEnhance/github.com\/ywt114\/diy\/releases\/download\/services/g' package/network/services/istoreenhance/Makefile
 # sed -i 's/fw0.koolcenter.com\/binary\/LinkEase\/LinuxStorage/github.com\/ywt114\/diy\/releases\/download\/services/g' package/network/services/linkease/Makefile
 # sed -i 's/fw0.koolcenter.com\/binary\/LinkEase\/AutoUpgrade\/linkmount/github.com\/ywt114\/diy\/releases\/download\/services/g' package/network/services/linkmount/Makefile
-merge_package main https://github.com/Carseason/openwrt-packages package/lean luci/luci-app-istorego luci/luci-app-routerdog
-merge_package main https://github.com/Carseason/openwrt-packages package/network/services network/services/routergo
+git clone -b main https://github.com/Carseason/openwrt-packages package/lean/openwrt-packages
+\cp -rf package/lean/openwrt-packages/network/services/* package/network/services
+\cp -rf package/lean/openwrt-packages/luci/luci-app-istorego package/lean
+\cp -rf package/lean/openwrt-packages/luci/luci-app-routerdog package/lean
+\rm -rf package/lean/openwrt-packages
 
 # 创建automake-1.15软连接
 # sudo -E ln -sf /usr/bin/automake /usr/bin/automake-1.15
@@ -140,10 +159,3 @@ sed -i 's/Variable1 = "*.*"/Variable1 = "ywt114"/g' package/lean/luci-app-gpsysu
 sed -i 's/Variable2 = "*.*"/Variable2 = "test"/g' package/lean/luci-app-gpsysupgrade/root/usr/bin/upgrade.lua
 sed -i 's/Variable3 = "*.*"/Variable3 = "x86_64"/g' package/lean/luci-app-gpsysupgrade/root/usr/bin/upgrade.lua
 sed -i 's/Variable4 = "*.*"/Variable4 = "6.6"/g' package/lean/luci-app-gpsysupgrade/root/usr/bin/upgrade.lua
-
-# 回退passwall到2024年1月9日旧版本
-cd package/lean/small/luci-app-passwall
-git reset --hard ecd92aa64174f5e7a200678b4122891764a6b245
-cd ../../../..
-\cp -rf package/lean/mosdns/v2dat package/lean/small
-sed -i 's/CGO_ENABLED=0/CGO_ENABLED=1/g' package/lean/small/sing-box/Makefile
