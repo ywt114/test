@@ -136,7 +136,6 @@ git clone -b main https://github.com/Carseason/openwrt-packages package/lean/ope
 \cp -rf package/lean/openwrt-packages/luci/luci-app-istorego package/lean
 \cp -rf package/lean/openwrt-packages/luci/luci-app-routerdog package/lean
 \rm -rf package/lean/openwrt-packages
-git clone -b master https://github.com/ywt114/luci-app-deepseek package/lean/luci-app-deepseek
 
 # 创建automake-1.15软连接
 # sudo -E ln -sf /usr/bin/automake /usr/bin/automake-1.15
