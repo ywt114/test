@@ -169,3 +169,4 @@ sed -i 's/Variable4 = "*.*"/Variable4 = "5.4"/g' package/lean/luci-app-gpsysupgr
 cd package/lean/small/v2ray-plugin
 git reset --hard 82eac7940f75b6ed59523c728adca179ab001aaf
 cd ../../../..
+d
