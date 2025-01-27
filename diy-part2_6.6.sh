@@ -163,3 +163,4 @@ sed -i 's/Variable4 = "*.*"/Variable4 = "6.6"/g' package/lean/luci-app-gpsysupgr
 回退v2ray-plugin到2024年08月24日旧版本
 cd package/lean/small/v2ray-plugin
 git reset --hard 82eac7940f75b6ed59523c728adca179ab001aaf
+cd ../../../..
