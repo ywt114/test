@@ -131,6 +131,10 @@ git clone -b master https://github.com/linkease/nas-packages package/lean/nas-pa
 # sed -i 's/fw.koolcenter.com\/binary\/iStoreEnhance/github.com\/ywt114\/diy\/releases\/download\/services/g' package/network/services/istoreenhance/Makefile
 # sed -i 's/fw0.koolcenter.com\/binary\/LinkEase\/LinuxStorage/github.com\/ywt114\/diy\/releases\/download\/services/g' package/network/services/linkease/Makefile
 # sed -i 's/fw0.koolcenter.com\/binary\/LinkEase\/AutoUpgrade\/linkmount/github.com\/ywt114\/diy\/releases\/download\/services/g' package/network/services/linkmount/Makefile
+sed -i 's/http:\/\/fw.koolcenter/https:\/\/fw0.koolcenter/g' package/network/services/ddnsto/Makefile
+sed -i 's/http:\/\/fw.koolcenter/https:\/\/fw0.koolcenter/g' package/network/services/istoreenhance/Makefile
+sed -i 's/http:\/\/fw.koolcenter/https:\/\/fw0.koolcenter/g' package/network/services/linkease/Makefile
+sed -i 's/http:\/\/fw.koolcenter/https:\/\/fw0.koolcenter/g' package/network/services/linkmount/Makefile
 git clone -b main https://github.com/Carseason/openwrt-packages package/lean/openwrt-packages
 \cp -rf package/lean/openwrt-packages/network/services/* package/network/services
 \cp -rf package/lean/openwrt-packages/luci/luci-app-istorego package/lean
