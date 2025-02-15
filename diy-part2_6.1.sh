@@ -160,7 +160,7 @@ sed -i 's/Variable2 = "*.*"/Variable2 = "test"/g' package/lean/luci-app-gpsysupg
 sed -i 's/Variable3 = "*.*"/Variable3 = "x86_64"/g' package/lean/luci-app-gpsysupgrade/root/usr/bin/upgrade.lua
 sed -i 's/Variable4 = "*.*"/Variable4 = "6.1"/g' package/lean/luci-app-gpsysupgrade/root/usr/bin/upgrade.lua
 
-回退v2ray-plugin到2024年08月24日旧版本
-cd package/lean/small/v2ray-plugin
-git reset --hard 82eac7940f75b6ed59523c728adca179ab001aaf
-cd ../../../..
+# 回退v2ray-plugin到2024年08月24日旧版本
+# cd package/lean/small/v2ray-plugin
+# git reset --hard 82eac7940f75b6ed59523c728adca179ab001aaf
+# cd ../../../..
