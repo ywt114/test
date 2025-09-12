@@ -59,8 +59,8 @@ jobs:
         sudo -E apt-mark hold grub-efi-amd64-signed
         sudo -E apt -yqq update
         sudo -E apt -yqq full-upgrade
-        sudo -E apt -yqq install $(curl -fsSL https://raw.githubusercontent.com/ywt114/diy/main/depends | tr '\n' ' ') || true
         sudo -E apt -y purge azure-cli* docker* ghc* zulu* llvm* firefox google* dotnet* powershell* openjdk* mysql* php* mongodb* dotnet* snap* || true
+        sudo -E apt -yqq install $(curl -fsSL https://raw.githubusercontent.com/ywt114/diy/main/depends | tr '\n' ' ') || true
         sudo -E systemctl daemon-reload
         sudo -E apt -yqq autoremove --purge
         sudo -E apt -yqq autoclean
